@@ -10,8 +10,8 @@ class GenericFileType(Enum):
 
 
 
-file_type = {
-  GenericFileType.TEXT : (".txt", ".rtf", ".docx", ".csv", ".doc", ".wps", ".wpd", ".msg"),
+Format = {
+  GenericFileType.TEXT : (".txt", ".rtf", ".docx", ".csv", ".doc", ".wps", ".wpd", ".msg", ".md"),
   GenericFileType.IMAGE: (".jpg", ".png", ".webp", ".gif", ".tif", ".bmp", ".eps"),
   GenericFileType.AUDIO: (".mp3", ".wma", ".snd", ".wav", ".ra", ".au", ".aac"),
   GenericFileType.VIDEO: (".mp4", ".3gp", ".avi", ".mpg", ".mov", ".wmv"),
