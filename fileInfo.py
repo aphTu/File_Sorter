@@ -1,6 +1,7 @@
 from constants import *
 import os ##finding file
 import shutil  ## moving files
+
 class File():
   def __init__(self, file_name, file_type, file_format, path, meta=None, file_hash = None):
     self._name = file_name
@@ -10,6 +11,10 @@ class File():
     self._meta = meta
     self._hash = file_hash
 
+  def get_format(self):
+    pass
+  def get_type(self):
+    pass
   def __repr__(self):
     string = f"{self._name}(file_type='{self._type}', format='{self._format}', path= '{self._path}'"
     if self._meta is not None:
@@ -22,6 +27,14 @@ class File():
   
   def __str__(self):
     return f"{self._name}(format: {self._format}, path: {self._path})"
+
+
+class TextFile(File):
+  def __init__(self, file_name,file_format, path, meta= None, file_hash=None):
+    super(file_name, GenericFileType.TEXT, file_format, path, meta, file_hash)
+
+
+
 
 ## This should return a list of all the file within a path
 ## all the element in the list should be a File
@@ -53,6 +66,9 @@ def convert_text_to_file_class(file_name, path):
     if file_format in Format[key]:
       file_type = key
   file = File(file_name = name,file_type = file_type,file_format=file_format,path=path)
+  
   return file
+
+  
   
 
