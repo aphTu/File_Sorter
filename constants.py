@@ -10,7 +10,7 @@ class GenericFileType(Enum):
 
 
 
-Format = {
+readableRegistry = {
   GenericFileType.TEXT : (".txt", ".rtf", ".docx", ".csv", ".doc", ".wps", ".wpd", ".msg", ".md"),
   GenericFileType.IMAGE: (".jpg", ".png", ".webp", ".gif", ".tif", ".bmp", ".eps"),
   GenericFileType.AUDIO: (".mp3", ".wma", ".snd", ".wav", ".ra", ".au", ".aac"),
@@ -20,4 +20,10 @@ Format = {
   GenericFileType.WEB: (".html", ".html", ".xhtml", ".asp", ".css", ".aspx", ".rss")
 }
 
-
+def reverse_registry(registry):
+  re_registry = {}
+  for _type in registry:
+    for _format in registry[_type]:
+      re_registry[_format] = _type
+  
+  return re_registry

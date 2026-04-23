@@ -60,14 +60,13 @@ def convert_text_to_file_class(file_name, path):
   name, file_format = file_name.split(".")
   file_type = None
   file_format = "."+file_format
-  for key in Format:
-    # print(key)
-    # print(Format[key])
-    if file_format in Format[key]:
-      file_type = key
+  file_type = reverse_registry(readableRegistry)[file_format]
   file = File(file_name = name,file_type = file_type,file_format=file_format,path=path)
   
   return file
+
+
+print(get_files_in_path("./test_directory"))
 
   
   
