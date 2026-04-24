@@ -34,8 +34,6 @@ class TextFile(File):
     super(file_name, GenericFileType.TEXT, file_format, path, meta, file_hash)
 
 
-
-
 ## This should return a list of all the file within a path
 ## all the element in the list should be a File
 def get_files_in_path(path):
