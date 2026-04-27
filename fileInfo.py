@@ -24,7 +24,9 @@ class File():
     else:
       string+=")"
     return string
-  
+    
+
+    
   def __str__(self):
     return f"{self._name}(format: {self._format}, path: {self._path})"
 
