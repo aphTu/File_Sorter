@@ -1,6 +1,8 @@
 from constants import *
 import os ##finding file
 import shutil  ## moving files
+import time
+from datetime import datetime
 
 class File():
   def __init__(self, file_name, file_type, file_format, path, meta=None, file_hash = None):
@@ -30,9 +32,20 @@ class File():
 
 
 class TextFile(File):
-  def __init__(self, file_name,file_format, path, meta= None, file_hash=None):
-    super(file_name, GenericFileType.TEXT, file_format, path, meta, file_hash)
-
+  def __init__(self, file_name,file_format, path):
+    super(file_name, GenericFileType.TEXT, file_format, path)
+  
+  def get_format(self):
+    return self._format
+  def get_type(self):
+    return self._type
+  
+  def get_metadata(self):
+    match self._format:
+      case ".txt" | ".md":
+        get_txt_metadata(self._path)
+      case _:
+        pass
 
 ## This should return a list of all the file within a path
 ## all the element in the list should be a File
@@ -52,20 +65,26 @@ def get_files_in_path(path):
       file_list.append(convert_text_to_file_class(e, new_path))
     else:
       file_list.extend(get_files_in_path(new_path))
-  return file_list  
+  file_list_clean = [file for file in file_list if file is not None]
+  return file_list_clean
 
 def convert_text_to_file_class(file_name, path):
   name, file_format = file_name.split(".")
   file_type = None
   file_format = "."+file_format
+  if file_format not in reverse_registry(readableRegistry).keys():
+    return None
   file_type = reverse_registry(readableRegistry)[file_format]
   file = File(file_name = name,file_type = file_type,file_format=file_format,path=path)
   
   return file
 
 
+
 print(get_files_in_path("./test_directory"))
 
   
+def get_txt_metadata(path):
+  stats = os.stat(path)
+  _dict = {}
   
-

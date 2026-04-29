@@ -11,7 +11,7 @@ class GenericFileType(Enum):
 
 
 readableRegistry = {
-  GenericFileType.TEXT : (".txt", ".rtf", ".docx", ".csv", ".doc", ".wps", ".wpd", ".msg", ".md"),
+  GenericFileType.TEXT : (".txt", ".pdf", ".docx", ".md"),
   GenericFileType.IMAGE: (".jpg", ".png", ".webp", ".gif", ".tif", ".bmp", ".eps"),
   GenericFileType.AUDIO: (".mp3", ".wma", ".snd", ".wav", ".ra", ".au", ".aac"),
   GenericFileType.VIDEO: (".mp4", ".3gp", ".avi", ".mpg", ".mov", ".wmv"),
