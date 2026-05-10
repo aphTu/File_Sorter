@@ -76,7 +76,8 @@ def convert_text_to_file_class(file_name, path):
     return None
   file_type = reverse_registry(readableRegistry)[file_format]
   file = File(file_name = name,file_type = file_type,file_format=file_format,path=path)
-  
+   
+   
   return file
 
 
