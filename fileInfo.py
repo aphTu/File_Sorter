@@ -71,6 +71,8 @@ def get_files_in_path(path):
 def convert_text_to_file_class(file_name, path):
   name, file_format = file_name.split(".")
   file_type = None
+
+  
   file_format = "."+file_format
   if file_format not in reverse_registry(readableRegistry).keys():
     return None
