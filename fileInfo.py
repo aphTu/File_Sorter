@@ -70,6 +70,7 @@ def get_files_in_path(path):
 
 def convert_text_to_file_class(file_name, path):
   name, file_format = file_name.split(".")
+  
   file_type = None
 
   
